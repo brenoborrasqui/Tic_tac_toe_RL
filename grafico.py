@@ -40,12 +40,12 @@ def draw_peca(pos, peca, tela, size_p):
     x, y = pos
 
     if peca == 1:
-        img_o = pygame.image.load("O.jpg")
+        img_o = pygame.image.load("images/O.jpg")
         img_o = pygame.transform.scale(img_o, (size_p[0] - 35, size_p[1] - 35))
         tela.blit(img_o, ((x - size_p[0] / 2 + 18), (y - size_p[1] / 2 + 18)))
 
     elif peca == -1:
-        img_o = pygame.image.load("X.jpg")
+        img_o = pygame.image.load("images/X.jpg")
         img_o = pygame.transform.scale(img_o, (size_p[0] - 35, size_p[1] - 35))
         tela.blit(img_o, ((x - size_p[0] / 2 + 18), (y - size_p[1] / 2 + 18)))
 

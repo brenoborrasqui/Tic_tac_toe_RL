@@ -4,7 +4,7 @@ Curso de IA - Jogo da velha
 Robo que aprende a jogar o Jogo da Velha por RL
 """
 import numpy as np
-import grafico4
+import grafico
 
 
 def main():
@@ -34,7 +34,7 @@ def main():
     decay_rate = 0.001
     epsilon = 1
 
-    robo_começar = grafico4.select_player()
+    robo_começar = grafico.select_player()
 
     if robo_começar == "s":
 
@@ -47,7 +47,7 @@ def main():
     if quem_comeca == p2:
 
         try:
-            arquivo = open("tabelaq2.txt", "r")
+            arquivo = open("data/tabelaq2.txt", "r")
             Q = puxar_inteligencia(arquivo, possibilidades, dim2, quem_comeca)
 
         except Exception:
@@ -64,7 +64,7 @@ def main():
     elif quem_comeca == p1:
 
         try:
-            arquivo = open("tabelaq1.txt", "r")
+            arquivo = open("data/tabelaq1.txt", "r")
             Q = puxar_inteligencia(arquivo, possibilidades, dim2, quem_comeca)
 
         except Exception:
@@ -197,7 +197,7 @@ def play_teste(Q, dim2, empty, x, o, dim, quem_comeca):
 
                 while action == None:
 
-                    action = grafico4.mouse_posicao(grafico4.rects)
+                    action = grafico.mouse_posicao(grafico.rects)
 
                 if action == -1:
                     vet_board = [-1, -1, -1, -1, -1, -1, -1, -1, -1]
@@ -220,7 +220,7 @@ def play_teste(Q, dim2, empty, x, o, dim, quem_comeca):
 
         if gameover:
             while action != -1:
-                action = grafico4.mouse_posicao(grafico4.rects)
+                action = grafico.mouse_posicao(grafico.rects)
 
         # Passo para o novo estado
         new_state = take_state(dim2, vet_board, empty, o, x)
@@ -331,7 +331,7 @@ def game_over(vet_board, dim, x, o):
 
 def draw_board(vet_board):
 
-    grafico4.atualiza_tela(vet_board)
+    grafico.atualiza_tela(vet_board)
 
 
 def guardar_inteligencia(Q, dim2, quem_comeca, p1, p2):
