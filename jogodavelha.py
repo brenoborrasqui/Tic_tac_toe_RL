@@ -24,14 +24,14 @@ def main():
     Q = 0.4 * np.ones((possibilidades**dim2, dim2))  # Inicializa Tabela Q
 
     # Parâmetros
-    N_episodes = 30000  # Quantidade de vezes que o robo ira jogar
+    N_episodes = 100000  # Quantidade de vezes que o robo ira jogar
 
-    alpha = 0.5
-    gamma = 0.95
+    alpha = 0.1
+    gamma = 0.90
 
     max_epsilon = 1
     min_epsilon = 0
-    decay_rate = 0.001
+    decay_rate = 0.0005
     epsilon = 1
 
     robo_começar = grafico.select_player()
@@ -339,11 +339,11 @@ def guardar_inteligencia(Q, dim2, quem_comeca, p1, p2):
 
     if quem_comeca == p2:
 
-        arquivo = open("tabelaq2.txt", "w")
+        arquivo = open("data/tabelaq2.txt", "w")
 
     elif quem_comeca == p1:
 
-        arquivo = open("tabelaq1.txt", "w")
+        arquivo = open("data/tabelaq1.txt", "w")
 
     for i in Q:
 
